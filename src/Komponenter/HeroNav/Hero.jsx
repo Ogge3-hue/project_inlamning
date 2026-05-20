@@ -2,7 +2,8 @@ import { useState } from "react"
 import { Navbar, Container, Nav, Button } from "react-bootstrap" /*Container för hjälp av layout och omslutning, 
 nav är komponent-biblotek för navigeringsmenyer */
 import { NavLink } from "react-router-dom"
-import { useCart } from "../context/CartContext.jsx"
+import { useCart } from "../../context/CartContext.jsx"
+
 
 export default function Hero() {
     const [showCart, setShowCart] = useState(false)

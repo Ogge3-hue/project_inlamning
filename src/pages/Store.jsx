@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useCart } from '../context/CartContext.jsx'
 
+
+
 const SearchUI = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [products, setProducts] = useState([])
@@ -145,43 +147,202 @@ const SearchUI = () => {
 
 
 const styles = {
-  page: {
+  page:{
     minHeight: '100vh',
     background: '#f8f7f4',
     padding: '2rem 1rem',
     fontFamily: "'Segoe UI', system-ui, sans-serif",
   },
-  container: { maxWidth: '900px', margin: '0 auto',shadow: '0 4px 12px rgba(0,0,0,0.1)', padding: '2rem', background: '#c0bfbf', borderRadius: '14px' },
-  heading: { fontSize: '2rem', fontWeight: 700, margin: '0 0 4px', color: '#1a1a1a' },
-  sub: { fontSize: '0.95rem', color: '#888', margin: '0 0 1.5rem' },
-  inputWrapper: { position: 'relative', display: 'flex', alignItems: 'center', marginBottom: '1.5rem' },
-  icon: { position: 'absolute', left: '14px', width: '18px', height: '18px', color: '#aaa', pointerEvents: 'none' },
-  input: {
-    width: '100%', padding: '12px 44px', fontSize: '1rem',
-    border: '1.5px solid #e0e0e0', borderRadius: '12px', outline: 'none',
-    background: '#fff', color: '#1a1a1a', boxSizing: 'border-box',
+  container:{ 
+   maxWidth: '900px', 
+   margin: '0 auto',
+   shadow: '0 4px 12px rgba(0,0,0,0.1)', 
+   padding: '2rem', 
+   background: '#c0bfbf', borderRadius: '14px' },
+
+  heading:{ 
+   fontSize: '2rem', 
+   fontWeight: 700, 
+   margin: '0 0 4px', 
+   color: '#1a1a1a' },
+
+  sub:{ 
+   fontSize: '0.95rem', 
+   color: '#888', 
+   margin: '0 0 1.5rem' },
+
+  inputWrapper:{ 
+   position: 'relative',
+   display: 'flex', 
+   alignItems: 'center', 
+   marginBottom: '1.5rem' },
+
+  icon:{
+   position: 'absolute', 
+   left: '14px', 
+   width: '18px', 
+   height: '18px', 
+   color: '#aaa', 
+   pointerEvents: 'none' },
+
+  input:{
+    width: '100%', 
+    padding: '12px 44px', 
+    fontSize: '1rem',
+    border: '1.5px solid #e0e0e0', 
+    borderRadius: '12px', 
+    outline: 'none',
+    background: '#fff', 
+    color: '#1a1a1a', 
+    boxSizing: 'border-box',
   },
-  clearBtn: { position: 'absolute', right: '12px', background: 'none', border: 'none', cursor: 'pointer', fontSize: '0.9rem', color: '#aaa', padding: '4px' },
-  statusRow: { display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '1rem' },
-  statusText: { color: '#888', fontSize: '0.9rem' },
-  errorBox: { background: '#fff0f0', border: '1px solid #fcc', color: '#c00', padding: '12px 16px', borderRadius: '10px', fontSize: '0.9rem', marginBottom: '1rem' },
-  resultCount: { fontSize: '0.85rem', color: '#999', margin: '0 0 1rem' },
-  cartStatus: { fontSize: '0.95rem', color: '#333', margin: '0 0 1rem', fontWeight: 600 },
-  grid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '1rem' },
-  card: { background: '#fff', border: '1px solid #ebebeb', borderRadius: '14px', overflow: 'hidden', display: 'flex', flexDirection: 'column' },
-  imgWrapper: { height: '180px', background: '#f5f5f5', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' },
-  img: { width: '60%', height: '100%', objectFit: 'cover' },
-  cardBody: { padding: '14px', display: 'flex', flexDirection: 'column', flex: 1 },
-  category: { fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: '#aaa', marginBottom: '4px', display: 'block' },
-  title: { fontSize: '0.95rem', fontWeight: 600, margin: '0 0 6px', color: '#1a1a1a', lineHeight: 1.3 },
-  desc: { fontSize: '0.82rem', color: '#888', lineHeight: 1.5, margin: '0 0 12px', flex: 1, display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' },
-  footer: { display: 'flex', justifyContent: 'space-between', alignItems: 'center' },
-  cartControls: { display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap', marginTop: '1rem' },
-  cartBtn: { width: '2.4rem', height: '2.4rem', borderRadius: '10px', border: '1px solid #ccc', background: '#fff', cursor: 'pointer', fontSize: '1rem', fontWeight: 700 },
-  qty: { minWidth: '2rem', display: 'inline-flex', justifyContent: 'center', alignItems: 'center', fontWeight: 700, color: '#333' },
-  removeBtn: { padding: '0.55rem 0.9rem', borderRadius: '10px', border: '1px solid #ff5b5b', background: '#ff5b5b', color: '#fff', cursor: 'pointer' },
-  price: { fontWeight: 700, fontSize: '1rem', color: '#1a1a1a' },
-  rating: { fontSize: '0.82rem', color: '#e6a817', fontWeight: 500 },
+
+  clearBtn:{ 
+    position: 'absolute', 
+    right: '12px', 
+    background: 'none', 
+    border: 'none', 
+    cursor: 'pointer', 
+    fontSize: '0.9rem', 
+    color: '#aaa', 
+    padding: '4px' },
+
+  statusRow:{ 
+    display: 'flex', 
+    alignItems: 'center', 
+    gap: '10px', 
+    marginBottom: '1rem' },
+
+  statusText:{ 
+    color: '#888', 
+    fontSize: '0.9rem' },
+
+  errorBox:{ 
+    background: '#fff0f0', 
+    border: '1px solid #fcc', 
+    color: '#c00', 
+    padding: '12px 16px', 
+    borderRadius: '10px', 
+    fontSize: '0.9rem', 
+    marginBottom: '1rem' },
+
+  resultCount:{ 
+    fontSize: '0.85rem', 
+    color: '#999', 
+    margin: '0 0 1rem' },
+
+  cartStatus:{ 
+    fontSize: '0.95rem', 
+    color: '#333', 
+    margin: '0 0 1rem', 
+    fontWeight: 600 },
+
+  grid:{ 
+    display: 'grid', 
+    gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', 
+    gap: '1rem' },
+
+  card:{ 
+    background: '#fff', 
+    border: '1px solid #ebebeb', 
+    borderRadius: '14px', 
+    overflow: 'hidden', 
+    display: 'flex', 
+    flexDirection: 'column' },
+
+  imgWrapper:{ 
+    height: '180px', 
+    background: '#f5f5f5', 
+    overflow: 'hidden', 
+    display: 'flex', 
+    alignItems: 'center', 
+    justifyContent: 'center' },
+
+  img:{ 
+    width: '45%', 
+    height: '100%', 
+    objectFit: 'cover' },
+
+  cardBody:{ 
+    padding: '14px', 
+    display: 'flex', 
+    flexDirection: 'column', 
+    flex: 1 },
+
+  category:{ 
+    fontSize: '0.72rem', 
+    textTransform: 'uppercase', 
+    letterSpacing: '0.06em', 
+    color: '#aaa', 
+    marginBottom: '4px', 
+    display: 'block' },
+
+  title:{ 
+    fontSize: '0.95rem', 
+    fontWeight: 600, 
+    margin: '0 0 6px', 
+    color: '#1a1a1a', 
+    lineHeight: 1.3 },
+
+  desc:{ 
+    fontSize: '0.82rem', 
+    color: '#888', 
+    lineHeight: 1.5, 
+    margin: '0 0 12px', 
+    flex: 1, 
+    display: '-webkit-box', 
+    WebkitLineClamp: 3, 
+    WebkitBoxOrient: 'vertical', 
+    overflow: 'hidden' },
+
+  footer:{ 
+    display: 'flex', 
+    justifyContent: 'space-between', 
+    alignItems: 'center' },
+
+  cartControls:{ 
+    display: 'flex', 
+    alignItems: 'center', 
+    gap: '0.5rem', 
+    flexWrap: 'wrap', 
+    marginTop: '1rem' },
+
+  cartBtn:{ 
+    width: '2.4rem', 
+    height: '2.4rem', 
+    borderRadius: '10px', 
+    border: '1px solid #ccc', 
+    background: '#fff', 
+    cursor: 'pointer', 
+    fontSize: '1rem', 
+    fontWeight: 700 },
+
+  qty:{ 
+    minWidth: '2rem', 
+    display: 'inline-flex', 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    fontWeight: 700, 
+    color: '#333' },
+
+  removeBtn:{ 
+    padding: '0.55rem 0.9rem', 
+    borderRadius: '10px', 
+    border: '1px solid #ff5b5b', 
+    background: '#ff5b5b', 
+    color: '#fff', 
+    cursor: 'pointer' },
+
+  price:{ 
+    fontWeight: 700, 
+    fontSize: '1rem', 
+    color: '#1a1a1a' },
+
+  rating:{
+    fontSize: '0.82rem', 
+    color: '#e6a817', 
+    fontWeight: 500 },
 }
+
 
 export default SearchUI

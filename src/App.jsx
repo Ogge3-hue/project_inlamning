@@ -6,7 +6,7 @@ import Home from "./pages/Home.jsx"
 import About from "./pages/About.jsx"
 import Contact from "./pages/Contact.jsx"
 import Store from "./pages/Store.jsx"
-import Hero from "./Komponenter/Hero.jsx"
+import Hero from "./Komponenter/HeroNav/Hero.jsx"
 
 
 function App() {
