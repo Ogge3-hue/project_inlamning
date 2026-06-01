@@ -1,11 +1,18 @@
-import { createContext, useContext, useMemo, useState } from 'react'
+import { createContext, useContext, useEffect, useMemo, useState } from 'react' // UseMemo cachelagrar ett beräknat värde så att det inte räknas om i onödan vid varje render
 
 // Skapar en React Context för att lagra och dela varukorgdata mellan komponenter
 const CartContext = createContext(null)
 
 export function CartProvider({ children }) {
   // State som håller reda på alla produkter i varukorgen
-  const [cartItems, setCartItems] = useState([])
+  const [cartItems, setCartItems] = useState(() => {
+    const saved = localStorage.getItem('cart') // Local storage
+    return saved ? JSON.parse(saved) : []
+  })
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cartItems))
+  }, [cartItems])
 
   // Funktion för att lägga till en produkt i varukorgen
   // Om produkten redan finns, ökas kvantiteten med 1
