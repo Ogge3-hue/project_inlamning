@@ -20,12 +20,12 @@
 
 .homeHero p {
   font-size: 1rem;
-  color: #888;
+  color: #706f6f;
   margin: 0;
 }
 
 .homeContainer {
-  max-width: 860px;
+  max-width: 58rem;
   margin: 0 auto;
 }
 
@@ -49,7 +49,7 @@
 .homeGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.4rem;
+  gap: 1.7rem;
 }
 
 @media (max-width: 560px) {
@@ -64,7 +64,7 @@
 
 .homeCard {
   background: #ffffff;
-  border-radius: 18px;
+  border-radius: 1.1rem;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -78,7 +78,7 @@
 }
 
 .homeImgWrapper {
-  height: 220px;
+  height: 28rem;
   background: #f5f4f0;
   overflow: hidden;
   display: flex;

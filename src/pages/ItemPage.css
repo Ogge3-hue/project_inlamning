@@ -1,0 +1,47 @@
+.itemPage {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.itemPage-img {
+  width: 100%;
+  max-height: 25rem;
+  object-fit: contain;
+  margin-bottom: 3rem;
+}
+
+.itemPage-category {
+  font-size: 0.8rem;
+  color: #aaa;
+  text-transform: uppercase;
+}
+
+.itemPage-description {
+  color: #555;
+}
+
+.itemPage-priceRow {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.itemPage-price {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.itemPage-rating {
+  color: #e6a817;
+}
+
+.itemPage-loading {
+  padding: 2rem;
+}
+
+.itemPage-error {
+  padding: 2rem;
+  color: red;
+}

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useCart } from '../context/CartContext.jsx'
-import '../Komponenter/HomeSidan/Home.css'
+import { Link } from 'react-router-dom'
+import '../pages/Home.css'
 
 export default function Home() {
   const [products, setProducts] = useState([])
@@ -42,17 +43,21 @@ export default function Home() {
           <div className="homeGrid">
             {products.map(item => (
               <div key={item.id} className="homeCard">
-                <div className="homeImgWrapper">
-                  <img
-                    src={item.images?.[0]}
-                    alt={item.title}
-                    className="homeImg"
-                    onError={e => { e.target.style.display = 'none' }}
-                  />
-                </div>
+                <Link to={`/item/${item.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <div className="homeImgWrapper">
+                    <img
+                      src={item.images?.[0]}
+                      alt={item.title}
+                      className="homeImg"
+                      onError={e => { e.target.style.display = 'none' }}
+                    />
+                  </div>
+                </Link>
                 <div className="homeCardBody">
                   <span className="homeCategory">{item.category}</span>
-                  <h3 className="homeTitle">{item.title}</h3>
+                  <Link to={`/item/${item.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                    <h3 className="homeTitle">{item.title}</h3>
+                  </Link>
                   <p className="homeDesc">{item.description}</p>
                   <div className="homeFooter">
                     <span className="homePrice">${item.price}</span>
@@ -84,6 +89,7 @@ export default function Home() {
                     >
                       Remove
                     </button>
+                    
                   </div>
                 </div>
               </div>

@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react' // useState hanterar lokal state, useEffect kör kod när något förändras
-import { useCart } from '../context/CartContext.jsx'// Hämtar kundvagnsfunktioner från den globala CartContext
-import '../Komponenter/StoreSidan/Store.css'
+import { useState, useEffect } from 'react'
+import { useCart } from '../context/CartContext.jsx'
+import '../pages/Store.css'
+import { Link } from "react-router-dom"
 
 
 
@@ -10,7 +11,6 @@ const SearchUI = () => {
   const [loading, setLoading] = useState(false) // loading är true medan vi väntar på svar från API:et
   const [error, setError] = useState(null) // error lagrar eventuellt felmeddelande om något går snett
   const [hasSearched, setHasSearched] = useState(false)  // hasSearched blir true när en sökning har genomförts, används för att visa "inga resultat"
-
   const { cartItems, addToCart, removeFromCart, deleteFromCart } = useCart()// Plockar ut funktioner och data från kundvagnskontexten
   
   const cartTotal = cartItems.reduce((sum, item) => sum + item.quantity, 0)
@@ -106,18 +106,21 @@ const SearchUI = () => {
               {/* Loopar igenom varje produkt och skapar ett kort */}
               {products.map(item => (
                 <div key={item.id} className="card">
-                  {/* Produktbild – döljs om bilden inte kan laddas */}
-                  <div className="imgWrapper">
-                    <img
-                      src={item.images?.[0]}
-                      alt={item.title}
-                      className="img"
-                      onError={e => { e.target.style.display = 'none' }}
-                    />
-                  </div>
+                  <Link to={`/item/${item.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                    <div className="imgWrapper">
+                      <img
+                        src={item.images?.[0]}
+                        alt={item.title}
+                        className="img"
+                        onError={e => { e.target.style.display = 'none' }}
+                      />
+                    </div>
+                  </Link>
                   <div className="cardBody">
                     <span className="category">{item.category}</span>
-                    <h3 className="title">{item.title}</h3>
+                    <Link to={`/item/${item.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                      <h3 className="title">{item.title}</h3>
+                    </Link>
                     <p className="desc">{item.description}</p>
                     {/* Pris och betyg i rad */}
                     <div className="footer">
