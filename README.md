@@ -1,4 +1,4 @@
-#Project using React + Vite
+Project using React + Vite
 
 Have been using react framwork, and Vite as building tool and dev-server to develop a e-shop with dummyjson api.
 React tools used:
