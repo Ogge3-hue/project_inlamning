@@ -14,7 +14,7 @@ export default function ContactForm() {
 
             <label htmlFor="message">Message:</label>
             <div className="message-counter"><span id="charCount">{charCount}</span>/500</div> 
-            <textarea id="message" name="message" placeholder="Your Message" required maxLength="500" onChange={e => setCharCount(e.target.value.length)}></textarea> 
+            <textarea id="message" name="message" placeholder="Your Message" required maxLength="500" onChange={e => setCharCount(e.target.value.length)}></textarea>
             <button type="submit" className="submit-btn">Submit</button>
         </form>
 

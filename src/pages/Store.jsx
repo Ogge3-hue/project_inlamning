@@ -152,7 +152,7 @@ const SearchUI = () => {
                         onClick={() => deleteFromCart(item.id)}
                         className="removeBtn"
                       >
-                        Ta bort
+                        Remove
                       </button>
                     </div>
                   </div>
