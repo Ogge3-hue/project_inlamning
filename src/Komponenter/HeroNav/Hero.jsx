@@ -94,6 +94,9 @@ export default function Hero() {
                                     <span className="totalLabel">Totalt:</span>
                                     <span className="totalValue">${totalPrice.toFixed(2)}</span>
                                 </div>
+                                <NavLink to="/checkout" className="checkoutBtn" onClick={() => setShowCart(false)}>
+                                    Checkout
+                                </NavLink>
                             </>
                         )}
                     </div>
