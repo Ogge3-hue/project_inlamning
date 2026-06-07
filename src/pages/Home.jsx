@@ -11,11 +11,12 @@ export default function Home() {
   const { cartItems, addToCart, removeFromCart, deleteFromCart } = useCart()
 
   useEffect(() => {
-    const fetchRandom = async () => { //fetchar producter och randomiserar 6 stcken
+    const fetchRandom = async () => {
       try {
         const req = await fetch('https://dummyjson.com/products?limit=100')
         if (!req.ok) throw new Error('Something went wrong...')
         const data = await req.json()
+        // Slumpar ordningen och plockar ut 6 produkter
         const shuffled = data.products.sort(() => Math.random() - 0.5)
         setProducts(shuffled.slice(0, 6))
       } catch (err) {
@@ -64,6 +65,7 @@ export default function Home() {
                     <span className="homeRating">★ {item.rating?.toFixed(1)}</span>
                   </div>
                   <div className="homeCartControls">
+                    {/* disabled om produkten inte finns i kundvagnen (kan inte minska under 0) */}
                     <button
                       type="button"
                       onClick={() => removeFromCart(item.id)}

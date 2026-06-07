@@ -4,6 +4,7 @@ import { useCart } from '../context/CartContext.jsx'
 import '../pages/ItemPage.css'
 
 export default function ItemPage() {
+  // useParams hämtar :id från URL:en, t.ex. /item/42 → id = "42"
   const { id } = useParams()
   const [product, setProduct] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -13,12 +14,13 @@ export default function ItemPage() {
   useEffect(() => {
     fetch(`https://dummyjson.com/products/${id}`)
       .then(res => {
+        // fetch kastar inget fel vid HTTP-fel (t.ex. 404) — det måste göras manuellt
         if (!res.ok) throw new Error('Product not found')
         return res.json()
       })
       .then(data => setProduct(data))
       .catch(err => setError(err.message))
-      .finally(() => setLoading(false))
+      .finally(() => setLoading(false)) // körs alltid, oavsett om fetch lyckades eller inte
   }, [id])
 
   if (loading) return <p className="itemPage-loading">Loading...</p>

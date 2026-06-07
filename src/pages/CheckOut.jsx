@@ -6,6 +6,7 @@ export default function Checkout() {
 
   const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
 
+  // Tidig return — visar ett tomt-meddelande istället för en tom checkout-sida
   if (cartItems.length === 0) {
     return (
       <div className="checkout-empty">
